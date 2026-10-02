@@ -8,6 +8,7 @@ import { Outro } from "./edit/Outro";
 import { TitleCard } from "./edit/TitleCard";
 import { COLORS } from "./edit/theme";
 import { VideoEditado } from "./VideoEditado";
+import { SamaryVideo } from "./SamaryVideo";
 import { BrandVideo } from "./BrandVideo";
 import { BrandOutro } from "./brand/BrandOutro";
 import { FunnelScene } from "./brand/FunnelScene";
@@ -22,6 +23,14 @@ import { StatementScene } from "./brand/StatementScene";
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Composition
+        id="SamaryPanico"
+        component={SamaryVideo}
+        durationInFrames={835}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
       <Composition
         id="SchneiderbauerMedia"
         component={BrandVideo}
