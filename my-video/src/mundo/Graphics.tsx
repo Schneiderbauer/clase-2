@@ -9,37 +9,18 @@ import {
 import { Emoji } from "../samary3/Emoji";
 import { BLUE, clamp, font, GREEN, NAVY, YELLOW } from "./theme";
 
-// "MUNDO SEGURO" brand pill with a shield.
+// Mundo Seguro logo card (client-supplied logo).
 export const BrandPill: React.FC = () => (
-  <div
+  <Img
+    src={staticFile("logos/mundo-seguro.png")}
     style={{
-      display: "flex",
-      alignItems: "center",
-      gap: 22,
-      padding: "18px 44px 18px 22px",
-      borderRadius: 999,
-      backgroundColor: NAVY,
-      boxShadow: "0 16px 40px rgba(0,0,0,0.3)",
-      border: `5px solid ${YELLOW}`,
+      width: 300,
+      height: 300,
+      borderRadius: 48,
+      border: "6px solid white",
+      boxShadow: "0 18px 44px rgba(0,0,0,0.35)",
     }}
-  >
-    <Img
-      src={staticFile("emoji/1f6e1_fe0f.png")}
-      style={{ width: 96, height: 96 }}
-    />
-    <div
-      style={{
-        fontFamily: font,
-        fontWeight: 900,
-        fontSize: 70,
-        color: "white",
-        letterSpacing: 1,
-        whiteSpace: "nowrap",
-      }}
-    >
-      MUNDO <span style={{ color: YELLOW }}>SEGURO</span>
-    </div>
-  </div>
+  />
 );
 
 const Person: React.FC<{ readonly color: string; readonly label: string }> = ({

@@ -7,7 +7,6 @@ import {
   useVideoConfig,
 } from "remotion";
 import { Captions } from "./mundo/Captions";
-import { EndCard } from "./mundo/EndCard";
 import { BrandPill, DiscountBadge, Referral, ShareIt } from "./mundo/Graphics";
 import { NAVY, YELLOW } from "./mundo/theme";
 import { Emoji } from "./samary3/Emoji";
@@ -18,7 +17,7 @@ import { DmChat } from "./samary3/Widgets";
 
 // Mundo Seguro · referral promo (30% off). 30 fps.
 // Every overlay lands on the word it illustrates (forced-aligned timings in
-// mundo/captions.ts). 0–411 speaker · 404–480 end card.
+// mundo/captions.ts). 0–411 speaker; the video ends on "…a esa persona."
 export const MundoSeguroVideo: React.FC = () => {
   const { fps } = useVideoConfig();
 
@@ -61,7 +60,7 @@ export const MundoSeguroVideo: React.FC = () => {
         </Pop>
       </Sequence>
       <Sequence name="Marca" from={122} durationInFrames={48} premountFor={fps}>
-        <Pop dur={48} x={540} y={260} rotate={-2}>
+        <Pop dur={48} x={540} y={300} rotate={-2}>
           <BrandPill />
         </Pop>
       </Sequence>
@@ -133,39 +132,25 @@ export const MundoSeguroVideo: React.FC = () => {
       <Sequence
         name="Enviáselo"
         from={357}
-        durationInFrames={47}
+        durationInFrames={54}
         premountFor={fps}
       >
-        <Pop dur={47} x={540} y={360} rotate={-2}>
+        <Pop dur={54} x={540} y={360} rotate={-2}>
           <ShareIt />
         </Pop>
       </Sequence>
 
-      <Captions hideFrom={404} />
-
-      <Sequence
-        name="End card"
-        from={404}
-        durationInFrames={76}
-        premountFor={fps}
-      >
-        <EndCard />
-      </Sequence>
+      <Captions hideFrom={411} />
 
       <Audio
         name="Music"
         src={staticFile("music/bed.mp3")}
         premountFor={fps}
         volume={(f) =>
-          interpolate(
-            f,
-            [0, 10, 398, 412, 466, 480],
-            [0, 0.14, 0.14, 0.45, 0.45, 0],
-            {
-              extrapolateLeft: "clamp",
-              extrapolateRight: "clamp",
-            },
-          )
+          interpolate(f, [0, 10, 396, 411], [0, 0.14, 0.14, 0], {
+            extrapolateLeft: "clamp",
+            extrapolateRight: "clamp",
+          })
         }
       />
       <Sequence
@@ -183,57 +168,57 @@ export const MundoSeguroVideo: React.FC = () => {
       <Audio
         name="Pop 13"
         from={13}
-        src={staticFile("sfx/notification-pop.mp3")}
-        volume={0.3}
+        src={staticFile("sfx/bubble-pop.mp3")}
+        volume={0.4}
         premountFor={fps}
       />
       <Audio
         name="Pop 66"
         from={66}
-        src={staticFile("sfx/notification-pop.mp3")}
-        volume={0.3}
+        src={staticFile("sfx/pluck-002.mp3")}
+        volume={0.5}
         premountFor={fps}
       />
       <Audio
         name="Pop 79"
         from={79}
-        src={staticFile("sfx/notification-pop.mp3")}
-        volume={0.3}
+        src={staticFile("sfx/drop-004.mp3")}
+        volume={0.5}
         premountFor={fps}
       />
       <Audio
         name="Pop 95"
         from={95}
-        src={staticFile("sfx/notification-pop.mp3")}
-        volume={0.3}
+        src={staticFile("sfx/select-003.mp3")}
+        volume={0.4}
         premountFor={fps}
       />
       <Audio
         name="Pop 154"
         from={154}
-        src={staticFile("sfx/notification-pop.mp3")}
-        volume={0.3}
+        src={staticFile("sfx/mouth-pop.mp3")}
+        volume={0.5}
         premountFor={fps}
       />
       <Audio
         name="Pop 183"
         from={183}
-        src={staticFile("sfx/notification-pop.mp3")}
-        volume={0.3}
+        src={staticFile("sfx/switch-on.mp3")}
+        volume={0.4}
         premountFor={fps}
       />
       <Audio
         name="Pop 253"
         from={253}
-        src={staticFile("sfx/notification-pop.mp3")}
-        volume={0.3}
+        src={staticFile("sfx/drop-002.mp3")}
+        volume={0.5}
         premountFor={fps}
       />
       <Audio
         name="Pop 357"
         from={357}
-        src={staticFile("sfx/notification-pop.mp3")}
-        volume={0.3}
+        src={staticFile("sfx/select-006.mp3")}
+        volume={0.4}
         premountFor={fps}
       />
       <Audio
@@ -295,22 +280,8 @@ export const MundoSeguroVideo: React.FC = () => {
       <Audio
         name="Avión"
         from={373}
-        src={staticFile("sfx/soft-whoosh.mp3")}
+        src={staticFile("sfx/card-slide-8.mp3")}
         volume={0.4}
-        premountFor={fps}
-      />
-      <Audio
-        name="Cierre whoosh"
-        from={398}
-        src={staticFile("sfx/whoosh.mp3")}
-        volume={0.45}
-        premountFor={fps}
-      />
-      <Audio
-        name="Cierre"
-        from={410}
-        src={staticFile("sfx/success-chime.mp3")}
-        volume={0.5}
         premountFor={fps}
       />
     </AbsoluteFill>
