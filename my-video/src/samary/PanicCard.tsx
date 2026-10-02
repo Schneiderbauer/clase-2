@@ -4,11 +4,12 @@ import { CardFrame } from "./CardFrame";
 import { SoftText } from "./SoftText";
 import { clamp, INK, MUTED, sans, SAGE, serif } from "./theme";
 
+// "…un ataque de pánico." / "Un ataque de pánico…" — bridges the first cut.
 export const PanicCard: React.FC = () => {
   const frame = useCurrentFrame();
 
   return (
-    <CardFrame length={66}>
+    <CardFrame length={57}>
       <div
         style={{
           position: "absolute",
@@ -17,7 +18,7 @@ export const PanicCard: React.FC = () => {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          gap: 30,
+          gap: 26,
           color: INK,
         }}
       >
@@ -30,7 +31,7 @@ export const PanicCard: React.FC = () => {
           }}
         />
         <SoftText
-          at={2}
+          at={1}
           style={{
             fontFamily: sans,
             fontWeight: 300,
@@ -38,43 +39,19 @@ export const PanicCard: React.FC = () => {
             color: MUTED,
           }}
         >
-          probablemente sea un
+          puede llegar a ser un
         </SoftText>
         <SoftText
-          at={6}
+          at={5}
           style={{
             fontFamily: serif,
             fontStyle: "italic",
-            fontSize: 150,
+            fontSize: 156,
             lineHeight: 1,
+            scale: interpolate(frame, [5, 57], [1, 1.05], clamp),
           }}
         >
           ataque de pánico
-        </SoftText>
-        <SoftText
-          at={36}
-          style={{
-            fontFamily: sans,
-            fontWeight: 300,
-            fontSize: 64,
-            color: MUTED,
-            marginTop: 20,
-          }}
-        >
-          no un{" "}
-          <span style={{ position: "relative", color: INK }}>
-            infarto
-            <span
-              style={{
-                position: "absolute",
-                left: -6,
-                top: "55%",
-                height: 4,
-                backgroundColor: INK,
-                width: `${interpolate(frame, [46, 56], [0, 104], clamp)}%`,
-              }}
-            />
-          </span>
         </SoftText>
       </div>
     </CardFrame>

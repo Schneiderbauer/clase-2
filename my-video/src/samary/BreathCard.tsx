@@ -8,7 +8,7 @@ export const BreathCard: React.FC = () => {
   const frame = useCurrentFrame();
 
   return (
-    <CardFrame length={64} fadeIn={false}>
+    <CardFrame length={63}>
       <div
         style={{
           position: "absolute",
@@ -18,7 +18,7 @@ export const BreathCard: React.FC = () => {
         }}
       >
         <SoftText
-          at={2}
+          at={4}
           style={{
             fontFamily: sans,
             fontWeight: 300,
@@ -39,7 +39,7 @@ export const BreathCard: React.FC = () => {
           borderRadius: "50%",
           backgroundColor: SAGE,
           opacity: 0.9,
-          scale: interpolate(frame, [0, 30, 64], [0.5, 1, 0.78], {
+          scale: interpolate(frame, [0, 34, 63], [0.5, 1, 0.82], {
             ...clamp,
             easing: Easing.bezier(0.45, 0, 0.55, 1),
             output: "perceptual-scale",
@@ -68,7 +68,7 @@ export const BreathCard: React.FC = () => {
         }}
       >
         <SoftText
-          at={22}
+          at={33}
           style={{
             fontFamily: serif,
             fontStyle: "italic",

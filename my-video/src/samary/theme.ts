@@ -34,7 +34,8 @@ export const clamp = {
 
 // Frames where full-screen B-roll cards cover the speaker (captions hidden).
 export const CARD_WINDOWS: ReadonlyArray<readonly [number, number]> = [
-  [144, 210],
-  [350, 486],
-  [745, 835],
+  [270, 327],
+  [398, 494],
+  [567, 630],
+  [800, 890],
 ];

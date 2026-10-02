@@ -75,19 +75,19 @@ export const EndCard: React.FC<EndCardProps> = ({ brand, tagline }) => {
           color: MUTED,
         }}
       >
-        Si esto te pasa seguido,
+        Si te pasa esto seguido,
       </SoftText>
       <SoftText
         at={22}
         style={{
           fontFamily: serif,
           fontStyle: "italic",
-          fontSize: 140,
+          fontSize: 122,
           lineHeight: 1.05,
           marginTop: 10,
         }}
       >
-        escribinos por DM
+        dejanos un mensaje
       </SoftText>
       <div
         style={{

@@ -8,113 +8,89 @@ import {
 } from "remotion";
 import { BreathCard } from "./samary/BreathCard";
 import { CalmCaptions } from "./samary/CalmCaptions";
-import { CutBloom } from "./samary/CutBloom";
 import { Ecg } from "./samary/Ecg";
 import { EndCard } from "./samary/EndCard";
 import { Grain } from "./samary/Grain";
 import { PanicCard } from "./samary/PanicCard";
-import { ShrinkCard } from "./samary/ShrinkCard";
 import { SpeakerClip } from "./samary/SpeakerClip";
-import { TreatmentTags } from "./samary/TreatmentTags";
+import { SymptomsCard } from "./samary/SymptomsCard";
 
 // Samary · Psiquiatría · "Ataques de pánico" (30 fps)
-//   0–291    Take 1: hook + "es una descarga real…"
-//   291–537  Take 2: "el problema es cuando…"
-//   537–765  Take 3: "con terapia…" + CTA
-//   745–835  End card
+// All timings follow the forced-aligned transcript in samary/captions.ts.
+//   0–300    Take 1: "Te falta el aire… un ataque de pánico."
+//   300–567  Take 2: "Un ataque de pánico puede aparecer de golpe…"
+//   567–811  Take 3: "Ahí ya no alcanza… cómo te podemos ayudar."
+//   800–890  End card
+// Both cuts are hidden under B-roll cards (pánico, respirar).
 export const SamaryVideo: React.FC = () => {
   const { fps } = useVideoConfig();
 
   return (
     <AbsoluteFill style={{ backgroundColor: "black" }}>
       {/* Takes */}
-      <Sequence name="Take 1" durationInFrames={291} premountFor={fps}>
+      <Sequence name="Take 1" durationInFrames={300} premountFor={fps}>
         <SpeakerClip
           src={staticFile("clips/clip1.mp4")}
-          trimBefore={12}
-          clipDuration={291}
+          trimBefore={9}
+          clipDuration={300}
         />
       </Sequence>
       <Sequence
         name="Take 2"
-        from={291}
-        durationInFrames={246}
+        from={300}
+        durationInFrames={267}
         premountFor={fps}
       >
         <SpeakerClip
           src={staticFile("clips/clip2.mp4")}
           trimBefore={0}
-          clipDuration={246}
+          clipDuration={267}
         />
       </Sequence>
       <Sequence
         name="Take 3"
-        from={537}
-        durationInFrames={228}
+        from={567}
+        durationInFrames={244}
         premountFor={fps}
       >
         <SpeakerClip
           src={staticFile("clips/clip3.mp4")}
-          trimBefore={6}
-          clipDuration={228}
+          trimBefore={3}
+          clipDuration={244}
         />
       </Sequence>
 
       {/* Motion graphics over the speaker */}
       <Sequence
         name="Heartbeat line"
-        from={30}
+        from={34}
         durationInFrames={115}
         premountFor={fps}
       >
         <Ecg />
       </Sequence>
-      <Sequence
-        name="Cut bloom 1"
-        from={284}
-        durationInFrames={14}
-        premountFor={fps}
-      >
-        <CutBloom />
-      </Sequence>
-      <Sequence
-        name="Cut bloom 2"
-        from={530}
-        durationInFrames={14}
-        premountFor={fps}
-      >
-        <CutBloom />
-      </Sequence>
-      <Sequence
-        name="Treatment tags"
-        from={538}
-        durationInFrames={95}
-        premountFor={fps}
-      >
-        <TreatmentTags />
-      </Sequence>
 
       {/* B-roll cards */}
       <Sequence
-        name="B-roll: pánico, no infarto"
-        from={144}
-        durationInFrames={66}
+        name="B-roll: ataque de pánico"
+        from={270}
+        durationInFrames={57}
         premountFor={fps}
       >
         <PanicCard />
       </Sequence>
       <Sequence
-        name="B-roll: vida que se achica"
-        from={350}
-        durationInFrames={72}
+        name="B-roll: síntomas"
+        from={398}
+        durationInFrames={96}
         premountFor={fps}
       >
-        <ShrinkCard />
+        <SymptomsCard />
       </Sequence>
       <Sequence
         name="B-roll: respirar"
-        from={422}
-        durationInFrames={64}
+        from={567}
+        durationInFrames={63}
         premountFor={fps}
       >
         <BreathCard />
@@ -124,7 +100,7 @@ export const SamaryVideo: React.FC = () => {
 
       <Sequence
         name="End card"
-        from={745}
+        from={800}
         durationInFrames={90}
         premountFor={fps}
       >
@@ -141,7 +117,7 @@ export const SamaryVideo: React.FC = () => {
         volume={(f) =>
           interpolate(
             f,
-            [0, 20, 740, 770, 805, 835],
+            [0, 20, 795, 825, 860, 890],
             [0, 0.2, 0.2, 0.55, 0.55, 0],
             {
               extrapolateLeft: "clamp",
@@ -154,43 +130,64 @@ export const SamaryVideo: React.FC = () => {
       {/* Sound design */}
       <Audio
         name="Heartbeat"
-        from={30}
+        from={34}
         src={staticFile("sfx/heartbeat.mp3")}
         volume={0.8}
         premountFor={fps}
       />
       <Audio
-        name="Card in 1"
-        from={138}
+        name="Card in: pánico"
+        from={264}
         src={staticFile("sfx/soft-whoosh.mp3")}
         volume={0.3}
         premountFor={fps}
       />
       <Audio
-        name="Strike infarto"
-        from={190}
-        src={staticFile("sfx/impact-glass-light-003.mp3")}
+        name="Card in: síntomas"
+        from={392}
+        src={staticFile("sfx/soft-whoosh.mp3")}
         volume={0.3}
         premountFor={fps}
       />
       <Audio
-        name="Card in 2"
-        from={344}
+        name="Mareos"
+        from={416}
+        src={staticFile("sfx/impact-glass-light-003.mp3")}
+        volume={0.25}
+        premountFor={fps}
+      />
+      <Audio
+        name="Temblores"
+        from={434}
+        src={staticFile("sfx/impact-glass-light-003.mp3")}
+        volume={0.25}
+        premountFor={fps}
+      />
+      <Audio
+        name="Presión en el pecho"
+        from={456}
+        src={staticFile("sfx/impact-glass-light-003.mp3")}
+        volume={0.25}
+        premountFor={fps}
+      />
+      <Audio
+        name="Card in: respirar"
+        from={561}
         src={staticFile("sfx/soft-whoosh.mp3")}
         volume={0.3}
         premountFor={fps}
       />
       <Sequence
         name="Breath"
-        from={420}
-        durationInFrames={80}
+        from={567}
+        durationInFrames={75}
         premountFor={fps}
       >
         <Audio
           src={staticFile("sfx/breath.mp3")}
           premountFor={fps}
           volume={(f) =>
-            interpolate(f, [0, 60, 80], [0.45, 0.45, 0], {
+            interpolate(f, [0, 55, 75], [0.45, 0.45, 0], {
               extrapolateLeft: "clamp",
               extrapolateRight: "clamp",
             })
@@ -198,29 +195,15 @@ export const SamaryVideo: React.FC = () => {
         />
       </Sequence>
       <Audio
-        name="Tag terapia"
-        from={542}
-        src={staticFile("sfx/impact-glass-light-003.mp3")}
-        volume={0.25}
-        premountFor={fps}
-      />
-      <Audio
-        name="Tag medicación"
-        from={586}
-        src={staticFile("sfx/impact-glass-light-003.mp3")}
-        volume={0.25}
-        premountFor={fps}
-      />
-      <Audio
         name="End card in"
-        from={739}
+        from={794}
         src={staticFile("sfx/soft-whoosh.mp3")}
         volume={0.3}
         premountFor={fps}
       />
       <Audio
         name="End bell"
-        from={767}
+        from={822}
         src={staticFile("sfx/soft-bell.mp3")}
         volume={0.45}
         premountFor={fps}

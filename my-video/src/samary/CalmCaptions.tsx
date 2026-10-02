@@ -20,12 +20,16 @@ export const CalmCaptions: React.FC = () => {
     return null;
   }
   const page = CAPTION_PAGES[pageIndex];
-  const pageStart = (page[0].startMs / 1000) * fps;
   const next = CAPTION_PAGES[pageIndex + 1];
-  const pageEnd = next ? (next[0].startMs / 1000) * fps : pageStart + 45;
+  // Hold each phrase a little after its last word, but never past the next one.
+  const holdEnd = ((page[page.length - 1].endMs + 450) / 1000) * fps;
+  const nextStart = next ? (next[0].startMs / 1000) * fps : Infinity;
+  const pageEnd = Math.min(nextStart, holdEnd);
+  // Fade out only when there is a pause; otherwise switch straight to the next phrase.
+  const fades = holdEnd < nextStart;
 
   const covered = CARD_WINDOWS.some(([a, b]) => frame >= a - 2 && frame < b);
-  if (covered || frame > pageEnd + 10) {
+  if (covered || frame >= pageEnd) {
     return null;
   }
 
@@ -43,7 +47,9 @@ export const CalmCaptions: React.FC = () => {
         columnGap: 18,
         color: "white",
         textShadow: "0 2px 18px rgba(0,0,0,0.45)",
-        opacity: interpolate(frame, [pageEnd, pageEnd + 10], [1, 0], clamp),
+        opacity: fades
+          ? interpolate(frame, [pageEnd - 8, pageEnd], [1, 0], clamp)
+          : 1,
       }}
     >
       {page.map((w, i) => {
