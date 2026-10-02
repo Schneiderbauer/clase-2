@@ -3,12 +3,65 @@ import { Composition, Folder } from "remotion";
 import { HelloWorld } from "./HelloWorld";
 import { Logo } from "./HelloWorld/Logo";
 import { Title } from "./HelloWorld/Title";
+import { ChapterTag } from "./edit/ChapterTag";
+import { Outro } from "./edit/Outro";
+import { TitleCard } from "./edit/TitleCard";
+import { COLORS } from "./edit/theme";
+import { VideoEditado } from "./VideoEditado";
 
 // Each <Composition> is an entry in the sidebar!
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Composition
+        id="VideoEditado"
+        component={VideoEditado}
+        durationInFrames={861}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Folder name="Edit-elements">
+        <Composition
+          id="TitleCard"
+          component={TitleCard}
+          durationInFrames={90}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{
+            children: "Clase 2",
+            subtitle: "Arrancamos",
+            accentColor: COLORS.accent,
+          }}
+        />
+        <Composition
+          id="ChapterTag"
+          component={ChapterTag}
+          durationInFrames={190}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{
+            number: "01",
+            children: "Parte 1",
+            accentColor: COLORS.accent,
+          }}
+        />
+        <Composition
+          id="Outro"
+          component={Outro}
+          durationInFrames={75}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{
+            title: "¡Gracias por ver!",
+            cta: "Seguime para más",
+          }}
+        />
+      </Folder>
       <Folder name="Elements">
         <Composition
           id="Logo"
