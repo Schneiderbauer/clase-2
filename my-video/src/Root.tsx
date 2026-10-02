@@ -9,6 +9,7 @@ import { TitleCard } from "./edit/TitleCard";
 import { COLORS } from "./edit/theme";
 import { VideoEditado } from "./VideoEditado";
 import { SamaryVideo } from "./SamaryVideo";
+import { SamaryVideoV3 } from "./SamaryVideoV3";
 import { BrandVideo } from "./BrandVideo";
 import { BrandOutro } from "./brand/BrandOutro";
 import { FunnelScene } from "./brand/FunnelScene";
@@ -23,6 +24,14 @@ import { StatementScene } from "./brand/StatementScene";
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Composition
+        id="SamaryPanicoV3"
+        component={SamaryVideoV3}
+        durationInFrames={811}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
       <Composition
         id="SamaryPanico"
         component={SamaryVideo}
