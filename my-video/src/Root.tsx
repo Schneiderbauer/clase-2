@@ -8,12 +8,87 @@ import { Outro } from "./edit/Outro";
 import { TitleCard } from "./edit/TitleCard";
 import { COLORS } from "./edit/theme";
 import { VideoEditado } from "./VideoEditado";
+import { BrandVideo } from "./BrandVideo";
+import { BrandOutro } from "./brand/BrandOutro";
+import { FunnelScene } from "./brand/FunnelScene";
+import { GrowthScene } from "./brand/GrowthScene";
+import { IntroScene } from "./brand/IntroScene";
+import { ProblemScene } from "./brand/ProblemScene";
+import { ServicesScene } from "./brand/ServicesScene";
+import { StatementScene } from "./brand/StatementScene";
 
 // Each <Composition> is an entry in the sidebar!
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Composition
+        id="SchneiderbauerMedia"
+        component={BrandVideo}
+        durationInFrames={735}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Folder name="Brand-scenes">
+        <Composition
+          id="BrandIntro"
+          component={IntroScene}
+          durationInFrames={90}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Composition
+          id="BrandProblem"
+          component={ProblemScene}
+          durationInFrames={105}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Composition
+          id="BrandStatement"
+          component={StatementScene}
+          durationInFrames={90}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Composition
+          id="BrandFunnel"
+          component={FunnelScene}
+          durationInFrames={210}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Composition
+          id="BrandServices"
+          component={ServicesScene}
+          durationInFrames={120}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Composition
+          id="BrandGrowth"
+          component={GrowthScene}
+          durationInFrames={90}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Composition
+          id="BrandOutro"
+          component={BrandOutro}
+          durationInFrames={120}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{ cta: "Agendá tu llamada" }}
+        />
+      </Folder>
       <Composition
         id="VideoEditado"
         component={VideoEditado}
@@ -104,7 +179,6 @@ export const RemotionRoot: React.FC = () => {
           titleColor: "#000000",
         }}
       />
-
     </>
   );
 };
