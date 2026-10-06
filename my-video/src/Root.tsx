@@ -11,6 +11,7 @@ import { VideoEditado } from "./VideoEditado";
 import { SamaryVideo } from "./SamaryVideo";
 import { SamaryVideoV3 } from "./SamaryVideoV3";
 import { MundoSeguroVideo } from "./MundoSeguroVideo";
+import { IphoneBaAd } from "./IphoneBaAd";
 import { BrandVideo } from "./BrandVideo";
 import { BrandOutro } from "./brand/BrandOutro";
 import { FunnelScene } from "./brand/FunnelScene";
@@ -25,6 +26,14 @@ import { StatementScene } from "./brand/StatementScene";
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Composition
+        id="IphoneBA"
+        component={IphoneBaAd}
+        durationInFrames={1290}
+        fps={60}
+        width={1080}
+        height={1920}
+      />
       <Composition
         id="MundoSeguro"
         component={MundoSeguroVideo}
