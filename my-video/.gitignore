@@ -9,3 +9,8 @@ out
 # Local secrets (Higgsfield API credentials, etc.)
 .env.local
 .env.*.local
+
+# Personal reference photos used for Higgsfield generations
+higgsfield/minero/*.jpg
+higgsfield/minero/*.jpeg
+higgsfield/minero/*.png
