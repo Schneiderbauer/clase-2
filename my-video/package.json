@@ -6,6 +6,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@higgsfield/client": "^0.2.6",
     "@remotion/cli": "4.0.532",
     "@remotion/fonts": "4.0.532",
     "@remotion/lottie": "4.0.532",
@@ -13,6 +14,7 @@
     "@remotion/tailwind-v4": "4.0.532",
     "@remotion/transitions": "4.0.532",
     "@remotion/zod-types": "4.0.532",
+    "dotenv": "^18.0.7",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "remotion": "4.0.532",
@@ -25,13 +27,15 @@
     "@types/web": "0.0.166",
     "eslint": "9.39.5",
     "prettier": "3.8.1",
+    "tsx": "^4.23.15",
     "typescript": "5.9.3"
   },
   "scripts": {
     "dev": "remotion studio",
     "build": "remotion bundle",
     "upgrade": "remotion upgrade",
-    "lint": "eslint src && tsc"
+    "lint": "eslint src && tsc",
+    "higgsfield:example": "tsx higgsfield/index.ts"
   },
   "sideEffects": [
     "*.css"
