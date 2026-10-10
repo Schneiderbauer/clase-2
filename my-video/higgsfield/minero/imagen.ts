@@ -12,11 +12,12 @@ const MODEL = "alibaba/qwen-image-3/edit";
 
 const PROMPT = [
   "Turn this photo into a cinematic, photorealistic film still in vertical 9:16 format.",
-  "Keep this exact same man: identical face, facial features, brown eyes, dark hair and full dark beard.",
+  "Keep this exact same man: identical face, round full face shape, facial features, brown eyes, dark hair and full dark beard.",
   "He is now a miner deep inside a dark, narrow underground mine tunnel with rough rock walls and wooden beams,",
   "lit only by a warm oil lantern hanging nearby. He wears a dirty, sweat-stained white t-shirt and dark work overalls.",
   "His face and arms are covered in sweat, dust and dirt; he looks exhausted, breathing hard,",
-  "holding a pickaxe with both hands, about to strike the rock wall. Medium close-up, waist up.",
+  "Correct human anatomy: BOTH arms and BOTH hands clearly visible, two hands gripping the long wooden handle of a pickaxe,",
+  "raised over his right shoulder, about to strike the rock wall. Medium shot from the waist up, facing the camera at a slight angle.",
   "Warm amber light, deep shadows, shallow depth of field, film grain. Replace the white background completely.",
 ].join(" ");
 
