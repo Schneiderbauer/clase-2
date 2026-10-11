@@ -5,7 +5,7 @@ import { CARD, clamp, GRAY, GREEN, s, WHITE } from "./theme";
 
 // "Y lo podés probar 15 días pagando solo la publicidad.
 //  Si no te convence, no seguimos y listo."
-const T = {
+export const T = {
   days: s(0.82),
   onlyAds: s(1.38),
   gridEnd: s(3.0),

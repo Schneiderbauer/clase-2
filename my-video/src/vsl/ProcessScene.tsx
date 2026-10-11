@@ -13,7 +13,7 @@ type Step = {
   readonly icon: React.FC<{ readonly color: string }>;
 };
 
-const STEPS: Step[] = [
+export const STEPS: Step[] = [
   { at: s(1.38), title: "Grabamos", sub: "tus productos o servicios", icon: CameraIcon },
   { at: s(3.38), title: "Resultados reales", sub: "que generan confianza", icon: StarIcon },
   { at: s(5.28), title: "Anuncios", sub: "a gente lista para comprar", icon: MegaphoneIcon },

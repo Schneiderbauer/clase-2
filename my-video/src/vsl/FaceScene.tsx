@@ -18,7 +18,8 @@ type LowerThird = { readonly title: string; readonly subtitle: string; readonly 
 export const FaceScene: React.FC<{
   readonly file: string;
   readonly lowerThird?: LowerThird;
-}> = ({ file, lowerThird }) => {
+  readonly children?: React.ReactNode;
+}> = ({ file, lowerThird, children }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
   const zoom = interpolate(frame, [0, durationInFrames], [1, 1.06], clamp);
@@ -33,6 +34,7 @@ export const FaceScene: React.FC<{
         style={{ width: "100%", height: "100%", scale: String(zoom) }}
       />
       {lowerThird ? <NameTag {...lowerThird} /> : null}
+      {children}
       <CutFlash />
     </AbsoluteFill>
   );

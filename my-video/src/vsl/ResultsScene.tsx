@@ -23,7 +23,7 @@ const Label: React.FC<{ readonly children: React.ReactNode }> = ({ children }) =
 // "Con una aseguradora generamos casi 7.000 mensajes de clientes
 //  interesados, a un costo de 366 pesos cada uno."
 // Times are relative to this scene, which starts 5.4 s into recording 3.
-const A = {
+export const A = {
   label: s(0.2),
   countFrom: s(1.24),
   countTo: s(2.3),
@@ -77,7 +77,7 @@ export const InsurerScene: React.FC = () => (
 );
 
 // "Con una tienda de celulares conseguimos más de 5000 consultas por sus productos."
-const B = {
+export const B = {
   label: s(0.32),
   countFrom: s(1.8),
   countTo: s(2.6),
