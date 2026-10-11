@@ -15,7 +15,7 @@ import { T, TrialScene } from "./vsl/TrialScene";
 //
 // Recording lengths at 30 fps:
 //   cara1 220 · cara2 298 · voz3 406 (trial 0–162, results 162–406)
-//   voz4 135 · voz5 274 · voz6 271 · cara7 425
+//   voz4 135 · voz5 274 · voz6 271 · cara7 426
 const CARA1 = 220;
 const CARA2 = 298;
 const VOZ3 = 406;
@@ -23,7 +23,7 @@ const TRIAL = 162;
 const VOZ4 = 135;
 const VOZ5 = 274;
 const VOZ6 = 271;
-const CARA7 = 425;
+const CARA7 = 426;
 
 const AT_CARA2 = CARA1;
 const AT_VOZ3 = AT_CARA2 + CARA2;
