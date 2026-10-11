@@ -17,3 +17,5 @@ higgsfield/minero/*.png
 
 # VSL recordings (personal footage, regenerated locally)
 public/vsl/
+higgsfield/pixel/*.jpg
+higgsfield/pixel/*.png
