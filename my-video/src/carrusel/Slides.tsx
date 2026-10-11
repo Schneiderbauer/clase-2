@@ -22,9 +22,10 @@ const Kicker: React.FC<{ readonly children: React.ReactNode }> = ({ children }) 
   <div style={{ fontSize: 30, fontWeight: 500, letterSpacing: 4, color: SOFT, marginBottom: 26 }}>→ {children}</div>
 );
 
+// Waist-up cut of the seated character (pointing up), anchored to the slide's bottom edge.
 const Character: React.FC<{ readonly height: number; readonly style?: React.CSSProperties }> = ({ height, style }) => (
   <Img
-    src={staticFile("carrusel/augusto.png")}
+    src={staticFile("carrusel/augusto-bust.png")}
     style={{
       position: "absolute",
       height,
@@ -49,9 +50,9 @@ export const Slide1: React.FC = () => (
       <br />
       <Mark>a Meta.</Mark>
     </p>
-    <Character height={540} style={{ right: 80, bottom: 130 }} />
-    <Pixel icon={COIN_WINGS} size={9} style={{ position: "absolute", left: 110, bottom: 300, rotate: "-8deg" }} />
-    <Pixel icon={COIN_WINGS} size={6} style={{ position: "absolute", left: 380, bottom: 470, rotate: "10deg" }} />
+    <Character height={600} style={{ left: 280, bottom: 0 }} />
+    <Pixel icon={COIN_WINGS} size={7} style={{ position: "absolute", left: 60, bottom: 330, rotate: "-8deg" }} />
+    <Pixel icon={COIN_WINGS} size={6} style={{ position: "absolute", right: 50, bottom: 400, rotate: "10deg" }} />
   </Slide>
 );
 
@@ -96,12 +97,14 @@ export const Slide3: React.FC = () => (
     <p style={{ ...h1, fontSize: 84, marginTop: 20 }}>
       ¿cuánto te costó <Mark>cada persona que te escribió?</Mark>
     </p>
-    <p style={{ ...body, marginTop: 40, fontSize: 42, width: 560 }}>
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "flex-end", gap: 36, marginTop: 80 }}>
+      <Pixel icon={QUESTION} size={10} style={{ rotate: "-10deg" }} />
+      <Pixel icon={CHAT} size={12} />
+      <Pixel icon={QUESTION} size={14} style={{ rotate: "8deg" }} />
+    </div>
+    <p style={{ ...body, marginTop: 80, fontSize: 42 }}>
       Si no sabés ese número, <b style={{ color: INK }}>no sabés si estás ganando plata o perdiéndola.</b>
     </p>
-    <Pixel icon={QUESTION} size={11} style={{ position: "absolute", left: 120, bottom: 300, rotate: "-10deg" }} />
-    <Pixel icon={CHAT} size={11} style={{ position: "absolute", left: 270, bottom: 330 }} />
-    <Character height={470} style={{ right: 80, bottom: 130 }} />
   </Slide>
 );
 
@@ -208,17 +211,8 @@ export const Slide6: React.FC = () => (
 export const Slide7: React.FC = () => (
   <Slide n={7}>
     <p style={{ ...h1, fontSize: 64, textAlign: "center" }}>Hacé la cuenta con tus números hoy.</p>
-    <div style={{ display: "flex", justifyContent: "center", alignItems: "flex-end", gap: 60, marginTop: 40, height: 330 }}>
-      <Pixel icon={SHEET} size={12} style={{ rotate: "-4deg", marginBottom: 40 }} />
-      <Img
-        src={staticFile("carrusel/augusto.png")}
-        style={{
-          height: 330,
-          imageRendering: "pixelated",
-          filter:
-            "drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 12px 16px rgba(60,50,30,0.22))",
-        }}
-      />
+    <div style={{ display: "flex", justifyContent: "center", marginTop: 60 }}>
+      <Pixel icon={SHEET} size={15} style={{ rotate: "-4deg" }} />
     </div>
     <div
       style={{

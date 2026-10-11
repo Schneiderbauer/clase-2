@@ -22,8 +22,8 @@ export const MUTED = "#8B867C";
 export const YELLOW = "#FFF59A";
 export const CORAL = "#E0735A";
 
-/** Instagram handle shown on every slide. */
-export const HANDLE = "@augusto.ads";
+/** Agency name shown on every slide, next to its logo. */
+export const HANDLE = "Schneiderbauer Media";
 export const TOTAL = 7;
 
 /** Yellow marker highlight, like the reference. */
@@ -51,14 +51,10 @@ export const Slide: React.FC<{
         gap: 16,
       }}
     >
-      <div style={{ width: 58, height: 58, borderRadius: 29, overflow: "hidden", backgroundColor: "#D8D2C4" }}>
-        <Img src={staticFile("carrusel/avatar.png")} style={{ width: "100%", height: "100%", imageRendering: "pixelated" }} />
+      <div style={{ width: 58, height: 58, borderRadius: 29, overflow: "hidden", backgroundColor: "#000" }}>
+        <Img src={staticFile("carrusel/logo-sm.png")} style={{ width: "100%", height: "100%" }} />
       </div>
       <span style={{ fontSize: 27, fontWeight: 500, color: SOFT }}>{HANDLE}</span>
-      <svg width={28} height={28} viewBox="0 0 24 24">
-        <path fill="#3897F0" d="M12 1.5l2.4 1.8 3-.2.9 2.9 2.5 1.7-1 2.8 1 2.8-2.5 1.7-.9 2.9-3-.2L12 22.5l-2.4-1.8-3 .2-.9-2.9-2.5-1.7 1-2.8-1-2.8 2.5-1.7.9-2.9 3 .2z" />
-        <path d="M7.5 12.2l3 3 6-6.2" stroke="#fff" strokeWidth={2.2} fill="none" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
     </div>
 
     <AbsoluteFill style={{ padding: "170px 90px 150px" }}>{children}</AbsoluteFill>
