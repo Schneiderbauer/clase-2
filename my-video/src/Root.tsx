@@ -1,5 +1,5 @@
 import "./index.css";
-import { Composition, Folder } from "remotion";
+import { Composition, Folder, Still } from "remotion";
 import { HelloWorld } from "./HelloWorld";
 import { Logo } from "./HelloWorld/Logo";
 import { Title } from "./HelloWorld/Title";
@@ -14,6 +14,8 @@ import { MundoSeguroVideo } from "./MundoSeguroVideo";
 import { IphoneBaAd } from "./IphoneBaAd";
 import { BrandVideo } from "./BrandVideo";
 import { VSL_DURATION, VslVideo } from "./VslVideo";
+import { SLIDES } from "./carrusel/Slides";
+import { H as CARRUSEL_H, W as CARRUSEL_W } from "./carrusel/theme";
 import { BrandOutro } from "./brand/BrandOutro";
 import { FunnelScene } from "./brand/FunnelScene";
 import { GrowthScene } from "./brand/GrowthScene";
@@ -27,6 +29,17 @@ import { StatementScene } from "./brand/StatementScene";
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Folder name="Carrusel-costo-por-consulta">
+        {SLIDES.map((Component, i) => (
+          <Still
+            key={i}
+            id={`Carrusel-${i + 1}`}
+            component={Component}
+            width={CARRUSEL_W}
+            height={CARRUSEL_H}
+          />
+        ))}
+      </Folder>
       <Composition
         id="VSL"
         component={VslVideo}

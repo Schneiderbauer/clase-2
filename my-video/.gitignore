@@ -19,3 +19,6 @@ higgsfield/minero/*.png
 public/vsl/
 higgsfield/pixel/*.jpg
 higgsfield/pixel/*.png
+
+# Carousel character art (personal likeness)
+public/carrusel/
