@@ -13,6 +13,7 @@ import { SamaryVideoV3 } from "./SamaryVideoV3";
 import { MundoSeguroVideo } from "./MundoSeguroVideo";
 import { IphoneBaAd } from "./IphoneBaAd";
 import { BrandVideo } from "./BrandVideo";
+import { VSL_DURATION, VslVideo } from "./VslVideo";
 import { BrandOutro } from "./brand/BrandOutro";
 import { FunnelScene } from "./brand/FunnelScene";
 import { GrowthScene } from "./brand/GrowthScene";
@@ -26,6 +27,14 @@ import { StatementScene } from "./brand/StatementScene";
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Composition
+        id="VSL"
+        component={VslVideo}
+        durationInFrames={VSL_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
       <Composition
         id="IphoneBA"
         component={IphoneBaAd}
